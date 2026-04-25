@@ -19,6 +19,7 @@ export default function HomeScreen({
   onOpenHistory,
   onOpenSpotify,
   onOpenGenrePicker,
+  onOpenUpload,
   selectedGenreId,
   importedSongs,
   onImportedSongsConsumed,
@@ -133,6 +134,14 @@ export default function HomeScreen({
         onPress={onOpenSpotify}
       >
         <Text style={styles.spotifyButtonText}>🎵  Import Playlist from Spotify</Text>
+      </Pressable>
+
+      {/* Upload & Mix */}
+      <Pressable
+        style={({ pressed }) => [styles.uploadButton, pressed && { opacity: 0.75 }]}
+        onPress={onOpenUpload}
+      >
+        <Text style={styles.uploadButtonText}>🎛️  Upload Audio & Mix</Text>
       </Pressable>
 
       <View style={styles.divider}>
@@ -257,9 +266,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#1db95444',
-    marginBottom: 18,
+    marginBottom: 10,
   },
   spotifyButtonText: { color: '#1db954', fontSize: 14, fontWeight: '700' },
+
+  uploadButton: {
+    backgroundColor: '#12121f',
+    borderRadius: 12,
+    paddingVertical: 13,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#6c47ff44',
+    marginBottom: 18,
+  },
+  uploadButtonText: { color: '#6c47ff', fontSize: 14, fontWeight: '700' },
 
   divider: {
     flexDirection: 'row',
